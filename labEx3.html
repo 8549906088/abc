@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grow and Shrink Text</title>
+	<script type="text/javascript">
+		var size = 0, time;
+		time = window.setInterval("incr()", 100);
+		function incr()
+		{
+			size = size + 1;
+			demo.innerHTML = "TEXT-GROWING";
+			demo.style.fontSize = size + "pt";
+			if (size > 50)
+			{
+				window.clearTimeout(time);
+				time = window.setInterval("decr()", 100);
+			}
+			demo.style.color = "red";
+		}
+		function decr() {
+			size = size - 1;
+			demo.innerHTML = "TEXT-SHRINKING";
+			demo.style.fontSize = size + "pt";
+			if (size < 5)
+			{
+				window.clearTimeout(time);
+				time = window.setInterval("incr()", 100);
+			}
+			demo.style.color = "blue";
+		}
+ 	</script>
+</head>
+<body><br><br><br><br><br><br>
+<center>
+	<p id="demo"></p>
+</center>
+</body>
+</html>
